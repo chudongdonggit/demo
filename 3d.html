@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d</title>
+    <style>
+        @keyframes aa {
+            0%{
+                transform: rotateY(0deg);
+            }
+            100%{
+                transform: rotateY(360deg);
+            }
+        }
+
+        #wutai{
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            /*perspective 视距*/
+            /*1、规定眼睛到舞台的距离*/
+            /*2、观看的是舞台的整体3d效果*/
+            perspective: 1300px;
+
+        }
+        #zhou{
+            width: 400px;
+            height: 400px;
+            position: relative;
+
+            /*当前元素做3d效果时，子孙元素也一起呈现3d效果*/
+            transform-style: preserve-3d;
+
+            animation: aa infinite linear 5s;
+            /*transform: rotateX(-45deg);*/
+
+        }
+        #zhou img{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            /*用来设置元素背面是否可见*/
+            /*backface-visibility: visible;*/
+            /*视角观看的位置*/
+            /*perspective-origin: 10% 10%;*/
+            /*变化的参照点，3d的变化需要3个值*/
+            /*transform-origin: 0 10% 0;*/
+
+        }
+    </style>
+</head>
+<body>
+<div id="wutai">
+    <div id="zhou">
+        <img style="transform: rotateY(0deg)translateZ(400px)" src="images/a1.jpg">
+        <img style="transform: rotateY(60deg)translateZ(400px)" src="images/a2.jpg">
+        <img style="transform: rotateY(120deg)translateZ(400px)" src="images/a3.jpg">
+        <img style="transform: rotateY(180deg)translateZ(400px)" src="images/a4.jpg">
+        <img style="transform: rotateY(240deg)translateZ(400px)" src="images/a5.jpg">
+        <img style="transform: rotateY(300deg)translateZ(400px)" src="images/a6.jpg">
+    </div>
+</div>
+</body>
+</html>
